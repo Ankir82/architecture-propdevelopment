@@ -1,0 +1,41 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: userOps-rolebindings
+  namespace: secure-space
+subjects:
+- kind: User
+  name: userOps
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: secret-officer
+  apiGroup: rbac.authorization.k8s.io   
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: userAdmin-rolebindings
+  namespace: secure-space
+subjects:
+- kind: User
+  name: userAdmin
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: cluster-administrator
+  apiGroup: rbac.authorization.k8s.io 
+--- 
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: userSecretOfficer-rolebindings
+  namespace: secure-space
+subjects:
+- kind: User
+  name: userSecretOfficer
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: cluster-ops
+  apiGroup: rbac.authorization.k8s.io 

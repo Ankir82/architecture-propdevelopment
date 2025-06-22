@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: userOps
+  namespace: default
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: userAdmin
+  namespace: default
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: userSecretOfficer
+  namespace: default

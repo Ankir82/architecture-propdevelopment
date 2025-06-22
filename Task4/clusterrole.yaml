@@ -1,0 +1,32 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: secret-officer
+rules:
+  - apiGroups: [""]
+    resources: ["secrets", "configmaps"]
+    verbs: ["get", "list", "create", "update", "delete"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: cluster-ops
+rules:
+  - apiGroups: ["", "apps"]
+    resources: ["namespaces", "services", "deployments", "persistentvolumeclaims", "serviceaccounts"]
+    verbs: ["*"]
+
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: cluster-administrator
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
